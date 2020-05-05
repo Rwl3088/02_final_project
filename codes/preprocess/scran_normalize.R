@@ -1,0 +1,6 @@
+library("scran")
+mat <- Matrix::readMM("temp.mtx")
+cl <- quickCluster(mat)
+sf <- computeSumFactors(mat, clusters=cl)
+write.csv(sf,"sf.csv")
+save(sf,file="sf.RData")
